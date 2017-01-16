@@ -3,12 +3,18 @@ $(function() {
 
   function showMenu() {
     $('#menuButton').css('visibility', 'hidden');
-    $('#navBar').css('visibility', 'visible');
+    $('.navBox').css('width', '25%');
+    $('.content').css('width', '75%');
+
     $('#menuButton2').css('visibility', 'visible');
+    $('#navBar').css('visibility', 'visible');
   }
 
   function closeMenu() {
     $('#menuButton2').css('visibility', 'hidden');
+    $('.navBox').css('width', '4%');
+    $('.content').css('width', '96%');
+
     $('#navBar').css('visibility', 'hidden');
     $('#menuButton').css('visibility', 'visible');
   }
