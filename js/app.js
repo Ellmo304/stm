@@ -5,6 +5,7 @@ $(function() {
     $('#menuButton').css('visibility', 'hidden');
     $('.navBox').css('width', '25%');
     $('.content').css('width', '75%');
+    $('.content').children().css('margin-left', '-28%');
 
     $('#menuButton2').css('visibility', 'visible');
     $('#navBar').css('visibility', 'visible');
@@ -14,6 +15,8 @@ $(function() {
     $('#menuButton2').css('visibility', 'hidden');
     $('.navBox').css('width', '4%');
     $('.content').css('width', '96%');
+    $('.content').children().css('margin-left', '0');
+
 
     $('#navBar').css('visibility', 'hidden');
     $('#menuButton').css('visibility', 'visible');
