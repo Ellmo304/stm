@@ -34,4 +34,9 @@ $(function() {
     $eyes.css('animation', 'none');
   });
 
+  $eyes.on('click', function() {
+    $('#splashDiv').remove();
+    $('.content').append('<h1>SABrE TOOTH MOnK</h1>');
+  });
+
 });
