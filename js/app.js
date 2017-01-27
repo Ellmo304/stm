@@ -3,6 +3,9 @@ $(function() {
 
   const $eyes = $('.eye');
 
+  const $songOne = new Audio('../audio/one.mp3');
+  const $songFangs = new Audio('../audio/fangs.mp3');
+
   function showMenu() {
     $('#menuButton').css('visibility', 'hidden');
     $('.navBox').css('width', '25%');
@@ -29,14 +32,19 @@ $(function() {
 
   $eyes.on('mouseenter', function() {
     $eyes.css('animation', 'glow 3s infinite ease-in-out');
+    $songOne.play();
   });
-  $eyes.on('mouseout', function() {
-    $eyes.css('animation', 'none');
-  });
+  // $eyes.on('mouseout', function() {
+  //   $eyes.css('animation', 'none');
+    // $songOne.pause();
+  // });
 
   $eyes.on('click', function() {
-    $('#splashDiv').remove();
-    $('.content').append('<h1>SABrE TOOTH MOnK</h1>');
+    $('#splashDiv').css('animation', 'fadeOutObject 3s');
+    setTimeout(function(){
+      $('#splashDiv').remove();
+      $('.content').append('<h1 class="fadeIn">SABrE TOOTH MOnK</h1>');
+    }, 3000);
   });
 
 });
