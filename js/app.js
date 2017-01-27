@@ -27,21 +27,11 @@ $(function() {
   $('#menuButton').on('click', showMenu);
   $('#menuButton2').on('click', closeMenu);
 
-  $eyes.on('click', function() {
-    if($eyes.css('background-color') === 'rgb(0, 0, 0)') {
-      $eyes.css('background-color', 'red');
-    } else {
-      $eyes.css('background-color', 'black');
-    }
+  $eyes.on('mouseenter', function() {
+    $eyes.css('animation', 'glow 3s infinite ease-in-out');
   });
-
-
-
-
-
-
-
-
-
+  $eyes.on('mouseout', function() {
+    $eyes.css('animation', 'none');
+  });
 
 });
