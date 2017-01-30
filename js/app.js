@@ -34,16 +34,15 @@ $(function() {
     $eyes.css('animation', 'glow 3s infinite ease-in-out');
     $songOne.play();
   });
-  // $eyes.on('mouseout', function() {
-  //   $eyes.css('animation', 'none');
-    // $songOne.pause();
-  // });
 
   $eyes.on('click', function() {
     $('#splashDiv').css('animation', 'fadeOutObject 3s');
     setTimeout(function(){
       $('#splashDiv').remove();
-      $('.content').append('<h1 class="fadeIn">SABrE TOOTH MOnK</h1>');
+      $('.content').append(
+      ' <img class="bannerImage" src="../images/banner.jpg" alt="bandPhoto"/>\
+      <h1 class="fadeIn">SABrE TOOTH MOnK</h1>\
+      <div id="c1" class="choice"><h2>MUsic</h2></div><div id="c2" class="choice"><h2>VidEos</h2></div><div id="c3" class="choice"><h2>Gigs</h2></div>');
     }, 3000);
   });
 
