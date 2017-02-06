@@ -4,10 +4,14 @@ $(function() {
   const $eyes = $('.eye');
   // const $c2 = $('#c2');
 
+  let playPauseCounter = 0;
+
   const $songOne = new Audio('../audio/one.mp3');
   // const $songFangs = new Audio('../audio/fangs.mp3');
 
   // const videos = [''];
+
+  let $currentSong = $songOne;
 
   const video = `<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fsabretoothmonkmusic%2Fvideos%2F1399419080092748%2F&show_text=0&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>`;
 
@@ -65,6 +69,7 @@ $(function() {
 
   function goMusic() {
     $songOne.pause();
+    $songOne.currentTime = 0;
     $('.content').css('animation', 'fadeOutObject 3s');
     setTimeout(function(){
       $('.content').empty();
@@ -74,7 +79,7 @@ $(function() {
         <div id="audioArt"><img src="../images/monk.jpg" alt="EP cover"/></div>
         <div id="nowPlaying">
         <i class="fa fa-backward"></i>
-        <i class="fa fa-play"></i>
+        <i id="playButton" class="fa fa-play"></i>
         <i class="fa fa-forward"></i>
         </div>
           <ul>
@@ -102,9 +107,24 @@ $(function() {
     }, 3000);
   }
 
+  function playPause() {
+    playPauseCounter = playPauseCounter + 1;
+    if(playPauseCounter %2 !== 0) {
+      $currentSong.play();
+      $('#playButton').removeClass('fa fa-play');
+      $('#playButton').addClass('fa fa-pause');
+    } else {
+      $currentSong.pause();
+      $('#playButton').removeClass('fa fa-pause');
+      $('#playButton').addClass('fa fa-play');
+    }
+  }
+
+
   $('body').on('click', '#c2', goVideos);
   $('body').on('click', '#c1', goMusic);
   $('body').on('click', '#homeLink', goHomepage);
+  $('body').on('click', '#playButton', playPause);
 
 
 });
