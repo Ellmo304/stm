@@ -80,9 +80,9 @@ $(function() {
     setTimeout(function(){
       $('#splashDiv').remove();
       $('.content').append(
-        ' <img class="bannerImage" src="../images/banner.jpg" alt="bandPhoto"/>\
+        ' <img class="fadeIn" class="bannerImage" src="../images/banner.jpg" alt="bandPhoto"/>\
         <h1 class="fadeIn">SABrE TOOTH MOnK</h1>\
-        <div id="c1" class="choice"><h2>MUsic</h2></div><div id="c2" class="choice"><h2>VidEos</h2></div><div id="c3" class="choice"><h2>Gigs</h2></div>');
+        <div id="c1" class="choice fadeIn"><h2>MUsic</h2></div><div  id="c2" class="choice fadeIn"><h2>VidEos</h2></div><div id="c3" class="choice fadeIn"><h2>Gigs</h2></div>');
     }, 3000);
   });
 
@@ -170,12 +170,24 @@ $(function() {
     if ($songCounter < 6) {
       $songCounter ++;
     }
+    if (playPauseCounter %2 !== 0) {
+      playPauseCounter ++;
+      $currentSong.pause();
+      $('#playButton').removeClass('fa fa-pause');
+      $('#playButton').addClass('fa fa-play');
+    }
     checkTrackNo();
   }
 
   function previousTrack() {
     if ($songCounter > 1) {
       $songCounter --;
+    }
+    if (playPauseCounter %2 !== 0) {
+      playPauseCounter ++;
+      $currentSong.pause();
+      $('#playButton').removeClass('fa fa-pause');
+      $('#playButton').addClass('fa fa-play');
     }
     checkTrackNo();
   }
