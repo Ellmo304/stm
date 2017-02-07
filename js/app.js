@@ -2,46 +2,48 @@ $(function() {
   console.log('Sabre Loaded!!!!');
 
   const $eyes = $('.eye');
-  // const $c2 = $('#c2');
 
   let playPauseCounter = 0;
 
-  const $songOne = new Audio('../audio/one.mp3');
-  const $songW4u = new Audio('../audio/w4u.mp3');
-  const $songFangs = new Audio('../audio/fangs.mp3');
-  const $songSmile = new Audio('../audio/smile.mp3');
-  const $songY3h = new Audio('../audio/y3h.mp3');
-  const $songBamboo = new Audio('../audio/bamboo.mp3');
+  const $audioFile = $('#audiofile');
 
-  // const videos = [''];
+  let $songOne = new Audio('../audio/one.mp3');
+  // const $songW4u = new Audio('../audio/w4u.mp3');
+  // const $songFangs = new Audio('../audio/fangs.mp3');
+  // const $songSmile = new Audio('../audio/smile.mp3');
+  // const $songY3h = new Audio('../audio/y3h.mp3');
+  // const $songBamboo = new Audio('../audio/bamboo.mp3');
 
-  let $currentSong = $songFangs;
   let $songCounter = 1;
+  const $currentSong = new Audio();
+  $currentSong.src = '../audio/one.mp3';
 
   function checkSong() {
+    $currentSong.src = null;
     console.log($songCounter);
-    $currentSong = null;
     switch ($songCounter) {
-      case 1 : {$currentSong = $songOne;}
+      case 1 : { setSong('one');}
         break;
-      case 2 : {$currentSong = $songW4u;}
+      case 2 : { setSong('w4u');}
         break;
-      case 3 : {$currentSong = $songFangs;}
+      case 3 : { setSong('fangs');}
         break;
-      case 4 : {$currentSong = $songSmile;}
+      case 4 : { setSong('smile');}
         break;
-      case 5 : {$currentSong = $songY3h;}
+      case 5 : { setSong('y3h');}
         break;
-      case 6 : {$currentSong = $songBamboo;}
+      case 6 : { setSong('bamboo');}
         break;
-      // default : $currentSong = $songOne;
     }
-    // $currentSong.currentTime = 0;
+  }
+
+  function setSong(track) {
+    $currentSong.src = `../audio/${track}.mp3`;
+    $currentSong.currentTime = 0;
   }
 
 
-
-  const video = `<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fsabretoothmonkmusic%2Fvideos%2F1399419080092748%2F&show_text=0&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>`;
+  const video = '<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fsabretoothmonkmusic%2Fvideos%2F1399419080092748%2F&show_text=0&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>';
 
 
   function showMenu() {
@@ -97,7 +99,7 @@ $(function() {
 
   function goMusic() {
     $songOne.pause();
-    $songOne.currentTime = 0;
+    $songOne = null;
     $('.content').css('animation', 'fadeOutObject 3s');
     setTimeout(function(){
       $('.content').empty();
@@ -135,18 +137,22 @@ $(function() {
     }, 3000);
   }
 
+
   function playPause() {
-    $currentSong.currentTime = 0;
-    console.log($currentSong);
-    playPauseCounter = playPauseCounter + 1;
+    console.log($audioFile);
+    playPauseCounter ++;
     if(playPauseCounter %2 !== 0) {
-      $currentSong.play();
+      setTimeout(function() {
+        $currentSong.play();
+      }, 150);
       $('#playButton').removeClass('fa fa-play');
       $('#playButton').addClass('fa fa-pause');
     } else {
-      $currentSong.pause();
-      $('#playButton').removeClass('fa fa-pause');
-      $('#playButton').addClass('fa fa-play');
+      setTimeout(function() {
+        $currentSong.pause();
+        $('#playButton').removeClass('fa fa-pause');
+        $('#playButton').addClass('fa fa-play');
+      }, 150);
     }
   }
 
@@ -157,13 +163,13 @@ $(function() {
     if ($songCounter === 1) {
       $('#previousButton').css('opacity', '0.3');
     } else $('#previousButton').css('opacity', '1');
+    checkSong();
   }
 
   function nextTrack() {
     if ($songCounter < 6) {
       $songCounter ++;
     }
-    checkSong();
     checkTrackNo();
   }
 
@@ -171,7 +177,6 @@ $(function() {
     if ($songCounter > 1) {
       $songCounter --;
     }
-    checkSong();
     checkTrackNo();
   }
 

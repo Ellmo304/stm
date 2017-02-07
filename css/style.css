@@ -145,10 +145,9 @@ cursor: pointer;
 }
 
 #audioPlayer {
-  height: 600px;
-  /*overflow: auto;*/
+  height: 606px;
   width: 600px;
-  margin-top: -70px;
+  margin-top: -80px;
   margin-bottom: 40px;
   border: 2px solid black;
   display: inline-block;
