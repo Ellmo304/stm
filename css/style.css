@@ -215,12 +215,12 @@ i {
   margin-left: 20px;
   margin-right: 20px;
   cursor: pointer;
+
 }
 
 i:hover {
-  background-color: white;
-  color: black;
-  opacity: 0.8;
+  box-shadow: 2px 1px 7px #999999;
+  text-shadow: 3px 1px 7px #999999
 }
 
 #previousButton {

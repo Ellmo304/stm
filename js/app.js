@@ -4,8 +4,9 @@ $(function() {
   const $eyes = $('.eye');
 
   let playPauseCounter = 0;
+  let $songCounter = 1;
 
-  const $audioFile = $('#audiofile');
+
 
   let $songOne = new Audio('../audio/one.mp3');
   // const $songW4u = new Audio('../audio/w4u.mp3');
@@ -14,32 +15,35 @@ $(function() {
   // const $songY3h = new Audio('../audio/y3h.mp3');
   // const $songBamboo = new Audio('../audio/bamboo.mp3');
 
-  let $songCounter = 1;
   const $currentSong = new Audio();
   $currentSong.src = '../audio/one.mp3';
 
-  function checkSong() {
+  function checkSong(autoplay) {
     $currentSong.src = null;
     console.log($songCounter);
     switch ($songCounter) {
-      case 1 : { setSong('one');}
+      case 1 : { setSong('one', autoplay);}
         break;
-      case 2 : { setSong('w4u');}
+      case 2 : { setSong('w4u', autoplay);}
         break;
-      case 3 : { setSong('fangs');}
+      case 3 : { setSong('fangs', autoplay);}
         break;
-      case 4 : { setSong('smile');}
+      case 4 : { setSong('smile', autoplay);}
         break;
-      case 5 : { setSong('y3h');}
+      case 5 : { setSong('y3h', autoplay);}
         break;
-      case 6 : { setSong('bamboo');}
+      case 6 : { setSong('bamboo', autoplay);}
         break;
     }
   }
 
-  function setSong(track) {
+  function setSong(track, autoplay) {
+    $(`#${track}`).css('background-color', 'lime');
     $currentSong.src = `../audio/${track}.mp3`;
     $currentSong.currentTime = 0;
+    if (autoplay === 'autoplay') {
+      $currentSong.play();
+    }
   }
 
 
@@ -113,12 +117,12 @@ $(function() {
         <i id="nextButton" class="fa fa-forward"></i>
         </div>
           <ul>
-            <li class="song">OnE</li>
-            <li class="song">WAITInG FOr YOU</li>
-            <li class="song">BABY, THESE FAnGS ArE POISOn</li>
-            <li class="song">SMILE</li>
-            <li class="song">Y3H!</li>
-            <li class="song">BAMBOO rIDGE</li>
+            <li id="one" class="song">OnE</li>
+            <li id="w4u" class="song">WAITInG FOr YOU</li>
+            <li id="fangs" class="song">BABY, THESE FAnGS ArE POISOn</li>
+            <li id="smile" class="song">SMILE</li>
+            <li id="y3h" class="song">Y3H!</li>
+            <li id="bamboo" class="song">BAMBOO rIDGE</li>
           </ul>
         </div>`
       );
@@ -130,7 +134,7 @@ $(function() {
     setTimeout(function() {
       $('.content').empty();
       $('.content').append(
-        ' <img class="bannerImage" src="../images/banner.jpg" alt="bandPhoto"/>\
+        ' <img class="bannerImage fadeIn" src="../images/banner.jpg" alt="bandPhoto"/>\
         <h1 class="fadeIn">SABrE TOOTH MOnK</h1>\
         <div id="c1" class="choice"><h2>MUsic</h2></div><div id="c2" class="choice"><h2>VidEos</h2></div><div id="c3" class="choice"><h2>Gigs</h2></div>');
       $songOne.play();
@@ -139,7 +143,6 @@ $(function() {
 
 
   function playPause() {
-    console.log($audioFile);
     playPauseCounter ++;
     if(playPauseCounter %2 !== 0) {
       setTimeout(function() {
@@ -156,17 +159,17 @@ $(function() {
     }
   }
 
-  function checkTrackNo() {
+  function checkTrackNo(autoplay) {
     if ($songCounter === 6) {
       $('#nextButton').css('opacity', '0.3');
     } else $('#nextButton').css('opacity', '1');
     if ($songCounter === 1) {
       $('#previousButton').css('opacity', '0.3');
     } else $('#previousButton').css('opacity', '1');
-    checkSong();
+    checkSong(autoplay);
   }
 
-  function nextTrack() {
+  function nextTrack(autoplay) {
     if ($songCounter < 6) {
       $songCounter ++;
     }
@@ -176,7 +179,7 @@ $(function() {
       $('#playButton').removeClass('fa fa-pause');
       $('#playButton').addClass('fa fa-play');
     }
-    checkTrackNo();
+    checkTrackNo(autoplay);
   }
 
   function previousTrack() {
@@ -193,13 +196,22 @@ $(function() {
   }
 
 
+  function playNext() {
+    nextTrack('autoplay');
+  }
+
 
   $('body').on('click', '#c2', goVideos);
   $('body').on('click', '#c1', goMusic);
   $('body').on('click', '#homeLink', goHomepage);
   $('body').on('click', '#playButton', playPause);
-  $('body').on('click', '#nextButton', nextTrack);
+  $('body').on('click', '#nextButton', function() {
+    nextTrack('noAuto');
+  });
   $('body').on('click', '#previousButton', previousTrack);
+
+
+  $currentSong.onended = playNext;
 
 
 });
