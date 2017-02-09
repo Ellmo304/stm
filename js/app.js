@@ -5,44 +5,48 @@ $(function() {
 
   let playPauseCounter = 0;
   let $songCounter = 1;
-
+  let previousSong = false;
 
 
   let $songOne = new Audio('../audio/one.mp3');
-  // const $songW4u = new Audio('../audio/w4u.mp3');
-  // const $songFangs = new Audio('../audio/fangs.mp3');
-  // const $songSmile = new Audio('../audio/smile.mp3');
-  // const $songY3h = new Audio('../audio/y3h.mp3');
-  // const $songBamboo = new Audio('../audio/bamboo.mp3');
+
 
   const $currentSong = new Audio();
   $currentSong.src = '../audio/one.mp3';
 
   function checkSong(autoplay) {
+    if ($songCounter !== 1) {
+      $('#one').css('background-color', 'white');
+    }
+    if (previousSong !== false) {
+      $(`#${previousSong}`).css('background-color', 'white');
+    }
     $currentSong.src = null;
     console.log($songCounter);
     switch ($songCounter) {
       case 1 : { setSong('one', autoplay);}
         break;
-      case 2 : { setSong('w4u', autoplay);}
+      case 2 : { setSong('w4u', autoplay, 'one');}
         break;
-      case 3 : { setSong('fangs', autoplay);}
+      case 3 : { setSong('fangs', autoplay, 'w4u');}
         break;
-      case 4 : { setSong('smile', autoplay);}
+      case 4 : { setSong('smile', autoplay, 'fangs');}
         break;
-      case 5 : { setSong('y3h', autoplay);}
+      case 5 : { setSong('y3h', autoplay, 'smile');}
         break;
-      case 6 : { setSong('bamboo', autoplay);}
+      case 6 : { setSong('bamboo', autoplay, 'y3h');}
         break;
     }
   }
 
-  function setSong(track, autoplay) {
+  function setSong(track, autoplay, previousTrack) {
     $(`#${track}`).css('background-color', 'lime');
     $currentSong.src = `../audio/${track}.mp3`;
+    previousSong = track;
     $currentSong.currentTime = 0;
-    if (autoplay === 'autoplay') {
-      $currentSong.play();
+    if (autoplay === 'autoplay' && $songCounter !== 6) {
+      $(`#${previousTrack}`).css('background-color', 'white');
+      playPause();
     }
   }
 
@@ -144,6 +148,9 @@ $(function() {
 
   function playPause() {
     playPauseCounter ++;
+    if ($songCounter === 1) {
+      $('#one').css('background-color', 'lime');
+    }
     if(playPauseCounter %2 !== 0) {
       setTimeout(function() {
         $currentSong.play();
