@@ -190,10 +190,11 @@ ul {
 .song {
   padding: 0px;
   margin-top: -4px;
-  background-color: white;
-  color: black;
+  /*background-color: white;*/
+  color: white;
   height: 50px;
-  font-size: 20px;
+  font-size: 25px;
+  font-weight: 900;
   line-height: 50px;
   width: 600px;
   border: solid black;
@@ -201,6 +202,18 @@ ul {
   list-style-type: none;
   margin: 0 auto;
   margin-bottom: 0px;
+  cursor: pointer;
+}
+
+.song:hover {
+  background: rgba(121,186,232,1);
+background: -moz-radial-gradient(center, ellipse cover, rgba(121,186,232,1) 0%, rgba(55,60,153,1) 100%);
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(121,186,232,1)), color-stop(100%, rgba(55,60,153,1)));
+background: -webkit-radial-gradient(center, ellipse cover, rgba(121,186,232,1) 0%, rgba(55,60,153,1) 100%);
+background: -o-radial-gradient(center, ellipse cover, rgba(121,186,232,1) 0%, rgba(55,60,153,1) 100%);
+background: -ms-radial-gradient(center, ellipse cover, rgba(121,186,232,1) 0%, rgba(55,60,153,1) 100%);
+background: radial-gradient(ellipse at center, rgba(121,186,232,1) 0%, rgba(55,60,153,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#79bae8', endColorstr='#373c99', GradientType=1 );
 }
 
 i {
@@ -225,4 +238,26 @@ i:hover {
 
 #previousButton {
   opacity: 0.3;
+}
+
+.offSong {
+background: rgba(75,164,232,1);
+background: -moz-radial-gradient(center, ellipse cover, rgba(75,164,232,1) 0%, rgba(5,12,153,1) 100%);
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(75,164,232,1)), color-stop(100%, rgba(5,12,153,1)));
+background: -webkit-radial-gradient(center, ellipse cover, rgba(75,164,232,1) 0%, rgba(5,12,153,1) 100%);
+background: -o-radial-gradient(center, ellipse cover, rgba(75,164,232,1) 0%, rgba(5,12,153,1) 100%);
+background: -ms-radial-gradient(center, ellipse cover, rgba(75,164,232,1) 0%, rgba(5,12,153,1) 100%);
+background: radial-gradient(ellipse at center, rgba(75,164,232,1) 0%, rgba(5,12,153,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4ba4e8', endColorstr='#050c99', GradientType=1 );
+}
+
+.playingSong, .playingSong:hover {
+  background: rgba(85,224,157,1);
+background: -moz-radial-gradient(center, ellipse cover, rgba(85,224,157,1) 0%, rgba(20,122,40,1) 100%);
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(85,224,157,1)), color-stop(100%, rgba(20,122,40,1)));
+background: -webkit-radial-gradient(center, ellipse cover, rgba(85,224,157,1) 0%, rgba(20,122,40,1) 100%);
+background: -o-radial-gradient(center, ellipse cover, rgba(85,224,157,1) 0%, rgba(20,122,40,1) 100%);
+background: -ms-radial-gradient(center, ellipse cover, rgba(85,224,157,1) 0%, rgba(20,122,40,1) 100%);
+background: radial-gradient(ellipse at center, rgba(85,224,157,1) 0%, rgba(20,122,40,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#55e09d', endColorstr='#147a28', GradientType=1 );
 }

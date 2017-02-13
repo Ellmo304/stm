@@ -16,10 +16,12 @@ $(function() {
 
   function checkSong(autoplay) {
     if ($songCounter !== 1) {
-      $('#one').css('background-color', 'white');
+      $('#one').removeClass('playingSong');
+      $('#one').addClass('offSong');
     }
     if (previousSong !== false) {
-      $(`#${previousSong}`).css('background-color', 'white');
+      $(`#${previousSong}`).removeClass('playingSong');
+      $(`#${previousSong}`).addClass('offSong');
     }
     $currentSong.src = null;
     console.log($songCounter);
@@ -40,12 +42,14 @@ $(function() {
   }
 
   function setSong(track, autoplay, previousTrack) {
-    $(`#${track}`).css('background-color', 'lime');
+    $(`#${track}`).removeClass('offSong');
+    $(`#${track}`).addClass('playingSong');
     $currentSong.src = `../audio/${track}.mp3`;
     previousSong = track;
     $currentSong.currentTime = 0;
     if (autoplay === 'autoplay' && $songCounter !== 6) {
-      $(`#${previousTrack}`).css('background-color', 'white');
+      $(`#${previousTrack}`).removeClass('playingSong');
+      $(`#${previousTrack}`).addClass('offSong');
       playPause();
     }
   }
@@ -121,12 +125,12 @@ $(function() {
         <i id="nextButton" class="fa fa-forward"></i>
         </div>
           <ul>
-            <li id="one" class="song">OnE</li>
-            <li id="w4u" class="song">WAITInG FOr YOU</li>
-            <li id="fangs" class="song">BABY, THESE FAnGS ArE POISOn</li>
-            <li id="smile" class="song">SMILE</li>
-            <li id="y3h" class="song">Y3H!</li>
-            <li id="bamboo" class="song">BAMBOO rIDGE</li>
+            <li id="one" class="song offSong">OnE</li>
+            <li id="w4u" class="song offSong">WAITInG FOr YOU</li>
+            <li id="fangs" class="song offSong">BABY, THESE FAnGS ArE POISOn</li>
+            <li id="smile" class="song offSong">SMILE</li>
+            <li id="y3h" class="song offSong">Y3H!</li>
+            <li id="bamboo" class="song offSong">BAMBOO rIDGE</li>
           </ul>
         </div>`
       );
@@ -149,7 +153,8 @@ $(function() {
   function playPause() {
     playPauseCounter ++;
     if ($songCounter === 1) {
-      $('#one').css('background-color', 'lime');
+      $('#one').removeClass('offSong');
+      $('#one').addClass('playingSong');
     }
     if(playPauseCounter %2 !== 0) {
       setTimeout(function() {
