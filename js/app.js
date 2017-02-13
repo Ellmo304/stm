@@ -74,7 +74,6 @@ $(function() {
     $('.content').css('width', '96%');
     $('.content').children().css('margin-left', '0');
 
-
     $('#navBar').css('visibility', 'hidden');
     $('#menuButton').css('visibility', 'visible');
   }
@@ -125,12 +124,12 @@ $(function() {
         <i id="nextButton" class="fa fa-forward"></i>
         </div>
           <ul>
-            <li id="one" class="song offSong">OnE</li>
-            <li id="w4u" class="song offSong">WAITInG FOr YOU</li>
-            <li id="fangs" class="song offSong">BABY, THESE FAnGS ArE POISOn</li>
-            <li id="smile" class="song offSong">SMILE</li>
-            <li id="y3h" class="song offSong">Y3H!</li>
-            <li id="bamboo" class="song offSong">BAMBOO rIDGE</li>
+            <li id="one" data-id="1" class="song offSong">OnE</li>
+            <li id="w4u" data-id="2" class="song offSong">WAITInG FOr YOU</li>
+            <li id="fangs" data-id="3" class="song offSong">BABY, THESE FAnGS ArE POISOn</li>
+            <li id="smile" data-id="4" class="song offSong">SMILE</li>
+            <li id="y3h" data-id="5" class="song offSong">Y3H!</li>
+            <li id="bamboo" data-id="6" class="song offSong">BAMBOO rIDGE</li>
           </ul>
         </div>`
       );
@@ -229,26 +228,9 @@ $(function() {
     nextTrack('noAuto');
   });
   $('body').on('click', '#previousButton', previousTrack);
-
-  $('body').on('click', '#one', function() {
-    playThis('autoplay', 1);
+  $('body').on('click', '.song', function() {
+    playThis('autoplay', $(this).data('id'));
   });
-  $('body').on('click', '#w4u', function() {
-    playThis('autoplay', 2);
-  });
-  $('body').on('click', '#fangs', function() {
-    playThis('autoplay', 3);
-  });
-  $('body').on('click', '#smile', function() {
-    playThis('autoplay', 4);
-  });
-  $('body').on('click', '#y3h', function() {
-    playThis('autoplay', 5);
-  });
-  $('body').on('click', '#bamboo', function() {
-    playThis('autoplay', 6);
-  });
-
 
   $currentSong.onended = playNext;
 
