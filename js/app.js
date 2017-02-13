@@ -212,6 +212,14 @@ $(function() {
     nextTrack('autoplay');
   }
 
+  function playThis(autoplay, num) {
+    playPauseCounter = 2;
+    $songCounter = num;
+    $currentSong.pause();
+    $('#playButton').removeClass('fa fa-pause');
+    $('#playButton').addClass('fa fa-play');
+    checkTrackNo(autoplay);
+  }
 
   $('body').on('click', '#c2', goVideos);
   $('body').on('click', '#c1', goMusic);
@@ -221,6 +229,25 @@ $(function() {
     nextTrack('noAuto');
   });
   $('body').on('click', '#previousButton', previousTrack);
+
+  $('body').on('click', '#one', function() {
+    playThis('autoplay', 1);
+  });
+  $('body').on('click', '#w4u', function() {
+    playThis('autoplay', 2);
+  });
+  $('body').on('click', '#fangs', function() {
+    playThis('autoplay', 3);
+  });
+  $('body').on('click', '#smile', function() {
+    playThis('autoplay', 4);
+  });
+  $('body').on('click', '#y3h', function() {
+    playThis('autoplay', 5);
+  });
+  $('body').on('click', '#bamboo', function() {
+    playThis('autoplay', 6);
+  });
 
 
   $currentSong.onended = playNext;
