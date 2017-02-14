@@ -1,85 +1,17 @@
 $(function() {
   console.log('Sabre Loaded!!!!');
 
-  const $eyes = $('.eye');
+//----------------------------------------------------------Variables------------------------------------------------------------//
 
+  const $eyes = $('.eye');
   let playPauseCounter = 0;
   let $songCounter = 1;
   let previousSong = false;
-
-
-  let $songOne = new Audio('../audio/one.mp3');
-
-
   const $currentSong = new Audio();
   $currentSong.src = '../audio/one.mp3';
+  let $songOne = new Audio('../audio/one.mp3');
 
-  function checkSong(autoplay) {
-    if ($songCounter !== 1) {
-      $('#one').removeClass('playingSong');
-      $('#one').addClass('offSong');
-    }
-    if (previousSong !== false) {
-      $(`#${previousSong}`).removeClass('playingSong');
-      $(`#${previousSong}`).addClass('offSong');
-    }
-    $currentSong.src = null;
-    console.log($songCounter);
-    switch ($songCounter) {
-      case 1 : { setSong('one', autoplay);}
-        break;
-      case 2 : { setSong('w4u', autoplay, 'one');}
-        break;
-      case 3 : { setSong('fangs', autoplay, 'w4u');}
-        break;
-      case 4 : { setSong('smile', autoplay, 'fangs');}
-        break;
-      case 5 : { setSong('y3h', autoplay, 'smile');}
-        break;
-      case 6 : { setSong('bamboo', autoplay, 'y3h');}
-        break;
-    }
-  }
-
-  function setSong(track, autoplay, previousTrack) {
-    $(`#${track}`).removeClass('offSong');
-    $(`#${track}`).addClass('playingSong');
-    $currentSong.src = `../audio/${track}.mp3`;
-    previousSong = track;
-    $currentSong.currentTime = 0;
-    if (autoplay === 'autoplay' && $songCounter !== 6) {
-      $(`#${previousTrack}`).removeClass('playingSong');
-      $(`#${previousTrack}`).addClass('offSong');
-      playPause();
-    }
-  }
-
-
-  const video = '<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fsabretoothmonkmusic%2Fvideos%2F1399419080092748%2F&show_text=0&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>';
-
-
-  function showMenu() {
-    $('#menuButton').css('visibility', 'hidden');
-    $('.navBox').css('width', '25%');
-    $('.content').css('width', '75%');
-    $('.content').children().css('margin-left', '-28%');
-
-    $('#menuButton2').css('visibility', 'visible');
-    $('#navBar').css('visibility', 'visible');
-  }
-
-  function closeMenu() {
-    $('#menuButton2').css('visibility', 'hidden');
-    $('.navBox').css('width', '4%');
-    $('.content').css('width', '96%');
-    $('.content').children().css('margin-left', '0');
-
-    $('#navBar').css('visibility', 'hidden');
-    $('#menuButton').css('visibility', 'visible');
-  }
-
-  $('#menuButton').on('click', showMenu);
-  $('#menuButton2').on('click', closeMenu);
+//-----------------------------------------------SWITCHING PAGE CONTENT------------------------------------------------------------//
 
   $eyes.on('mouseenter', function() {
     $eyes.css('animation', 'glow 3s infinite ease-in-out');
@@ -148,6 +80,47 @@ $(function() {
     }, 3000);
   }
 
+//----------------------------------------------AUDIO PLAYER/MUSIC PAGE----------------------------------------------------------//
+
+  function checkSong(autoplay) {
+    if ($songCounter !== 1) {
+      $('#one').removeClass('playingSong');
+      $('#one').addClass('offSong');
+    }
+    if (previousSong !== false) {
+      $(`#${previousSong}`).removeClass('playingSong');
+      $(`#${previousSong}`).addClass('offSong');
+    }
+    $currentSong.src = null;
+    console.log($songCounter);
+    switch ($songCounter) {
+      case 1 : { setSong('one', autoplay);}
+        break;
+      case 2 : { setSong('w4u', autoplay, 'one');}
+        break;
+      case 3 : { setSong('fangs', autoplay, 'w4u');}
+        break;
+      case 4 : { setSong('smile', autoplay, 'fangs');}
+        break;
+      case 5 : { setSong('y3h', autoplay, 'smile');}
+        break;
+      case 6 : { setSong('bamboo', autoplay, 'y3h');}
+        break;
+    }
+  }
+
+  function setSong(track, autoplay, previousTrack) {
+    $(`#${track}`).removeClass('offSong');
+    $(`#${track}`).addClass('playingSong');
+    $currentSong.src = `../audio/${track}.mp3`;
+    previousSong = track;
+    $currentSong.currentTime = 0;
+    if (autoplay === 'autoplay') {
+      $(`#${previousTrack}`).removeClass('playingSong');
+      $(`#${previousTrack}`).addClass('offSong');
+      playPause();
+    }
+  }
 
   function playPause() {
     playPauseCounter ++;
@@ -206,7 +179,6 @@ $(function() {
     checkTrackNo();
   }
 
-
   function playNext() {
     nextTrack('autoplay');
   }
@@ -220,6 +192,14 @@ $(function() {
     checkTrackNo(autoplay);
   }
 
+  $currentSong.onended = playNext;
+
+//----------------------------------------------------VIDEO PAGE-------------------------------------------------------------//
+
+  const video = '<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fsabretoothmonkmusic%2Fvideos%2F1399419080092748%2F&show_text=0&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>';
+
+//----------------------------------------------------CLICK LISTENERS-----------------------------------------------------------//
+
   $('body').on('click', '#c2', goVideos);
   $('body').on('click', '#c1', goMusic);
   $('body').on('click', '#homeLink', goHomepage);
@@ -231,8 +211,5 @@ $(function() {
   $('body').on('click', '.song', function() {
     playThis('autoplay', $(this).data('id'));
   });
-
-  $currentSong.onended = playNext;
-
 
 });

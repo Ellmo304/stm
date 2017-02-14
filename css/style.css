@@ -17,59 +17,13 @@ body {
   width: 1460px;
 }
 
-#menuButton {
-  font-weight: 900;
-  padding: 0px 12px 5px 12px;
-  font-size: 30px;
-  border: 5px solid white;
-  margin-top: -420px;
-  display: inline-block;
-  border-radius: 50%;
-  float: left;
-}
-
-#menuButton, #menuButton2:hover {
-  cursor: pointer;
-}
-
-#menuButton2 {
-  margin-top: -420px;
-  font-weight: 900;
-  padding: 0px 12px 5px 12px;
-  font-size: 30px;
-  visibility: hidden;
-  border: 5px solid black;
-  color: black;
-  display: inline-block;
-  border-radius: 50%;
-  float: left;
-}
-
-#navBar {
-  background-color: white;
-  color: black;
-  height: 100vh;
-  width: 80%;
-  margin-top: -10px;
-  visibility: hidden;
-  margin-left: -8px;
-}
-
 h1 {
   padding: 0;
   margin-top: 0;
-  /*display: inline-block;*/
-}
-
-.navBox {
-  float: left;
-  width:4%;
-  /*border: 3px solid white;*/
 }
 
 .content {
   font-family: Kremlin, sans-serif;
-  /*margin-top: -22px;*/
   margin-left: -10px;
   height: 100vh;
   background-color: white;
@@ -190,7 +144,6 @@ ul {
 .song {
   padding: 0px;
   margin-top: -4px;
-  /*background-color: white;*/
   color: white;
   height: 50px;
   font-size: 25px;
