@@ -50,6 +50,7 @@ $(function() {
         `<h1 id="homeLink" class="fadeIn">SABrE TOOTH MOnK</h1>\
         <div id="audioPlayer">
         <div id="audioArt"><img src="../images/monk.jpg" alt="EP cover"/></div>
+        <div id="progressBar"><div id="progress"></div></div>
         <div id="nowPlaying">
         <i id="previousButton" class="fa fa-backward"></i>
         <i id="playButton" class="fa fa-play"></i>
@@ -115,6 +116,7 @@ $(function() {
     $currentSong.src = `../audio/${track}.mp3`;
     previousSong = track;
     $currentSong.currentTime = 0;
+    // showDuration();
     if (autoplay === 'autoplay') {
       $(`#${previousTrack}`).removeClass('playingSong');
       $(`#${previousTrack}`).addClass('offSong');
@@ -134,6 +136,7 @@ $(function() {
       }, 150);
       $('#playButton').removeClass('fa fa-play');
       $('#playButton').addClass('fa fa-pause');
+      showDuration();
     } else {
       setTimeout(function() {
         $currentSong.pause();
@@ -193,6 +196,22 @@ $(function() {
   }
 
   $currentSong.onended = playNext;
+
+  function showDuration(){
+    $($currentSong).bind('timeupdate',function(){
+      var s = parseInt($currentSong.currentTime % 60);
+      var m = parseInt($currentSong.currentTime / 60) % 60;
+      if(s < 10){
+        s = '0'+s;
+      }
+      $('#duration').html(m + ':'+ s);
+      let value = 0;
+      if($currentSong.currentTime > 0){
+        value = Math.floor((100 / $currentSong.duration) * $currentSong.currentTime);
+      }
+      $('#progress').css('width',value+'%');
+    });
+  }
 
 //----------------------------------------------------VIDEO PAGE-------------------------------------------------------------//
 
