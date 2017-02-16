@@ -43,13 +43,13 @@ h1 {
 }
 
 .eye {
-border-radius: 50%;
-background-color: black;
-position: relative;
-display: inline-block;
-width: 57px;
-height: 57px;
-cursor: pointer;
+  border-radius: 50%;
+  background-color: black;
+  position: relative;
+  display: inline-block;
+  width: 57px;
+  height: 57px;
+  cursor: pointer;
 }
 
 @keyframes glow {
@@ -99,7 +99,7 @@ cursor: pointer;
 }
 
 #audioPlayer {
-  height: 606px;
+  height: 616px;
   width: 600px;
   margin-top: -80px;
   margin-bottom: 40px;
@@ -109,7 +109,7 @@ cursor: pointer;
 }
 
 #audioArt {
-  height: 332px;
+  height: 322px;
   width: 600px;
   display: inline-block;
   margin: 0 auto;
@@ -127,11 +127,13 @@ cursor: pointer;
   border: solid black;
   border-width: 5px 0px 3px 0px;
   height: 52px;
-  width: 600px;
+  width: 500px;
   background-color: black;
   color: white;
   line-height: 52px;
   font-size: 20px;
+  margin: 0px;
+  display: inline-block;
 }
 
 ul {
@@ -160,13 +162,13 @@ ul {
 
 .song:hover {
   background: rgba(121,186,232,1);
-background: -moz-radial-gradient(center, ellipse cover, rgba(121,186,232,1) 0%, rgba(55,60,153,1) 100%);
-background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(121,186,232,1)), color-stop(100%, rgba(55,60,153,1)));
-background: -webkit-radial-gradient(center, ellipse cover, rgba(121,186,232,1) 0%, rgba(55,60,153,1) 100%);
-background: -o-radial-gradient(center, ellipse cover, rgba(121,186,232,1) 0%, rgba(55,60,153,1) 100%);
-background: -ms-radial-gradient(center, ellipse cover, rgba(121,186,232,1) 0%, rgba(55,60,153,1) 100%);
-background: radial-gradient(ellipse at center, rgba(121,186,232,1) 0%, rgba(55,60,153,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#79bae8', endColorstr='#373c99', GradientType=1 );
+  background: -moz-radial-gradient(center, ellipse cover, rgba(121,186,232,1) 0%, rgba(55,60,153,1) 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(121,186,232,1)), color-stop(100%, rgba(55,60,153,1)));
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(121,186,232,1) 0%, rgba(55,60,153,1) 100%);
+  background: -o-radial-gradient(center, ellipse cover, rgba(121,186,232,1) 0%, rgba(55,60,153,1) 100%);
+  background: -ms-radial-gradient(center, ellipse cover, rgba(121,186,232,1) 0%, rgba(55,60,153,1) 100%);
+  background: radial-gradient(ellipse at center, rgba(121,186,232,1) 0%, rgba(55,60,153,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#79bae8', endColorstr='#373c99', GradientType=1 );
 }
 
 i {
@@ -181,6 +183,7 @@ i {
   margin-left: 20px;
   margin-right: 20px;
   cursor: pointer;
+  word-break: break-all;
 
 }
 
@@ -194,23 +197,52 @@ i:hover {
 }
 
 .offSong {
-background: rgba(75,164,232,1);
-background: -moz-radial-gradient(center, ellipse cover, rgba(75,164,232,1) 0%, rgba(5,12,153,1) 100%);
-background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(75,164,232,1)), color-stop(100%, rgba(5,12,153,1)));
-background: -webkit-radial-gradient(center, ellipse cover, rgba(75,164,232,1) 0%, rgba(5,12,153,1) 100%);
-background: -o-radial-gradient(center, ellipse cover, rgba(75,164,232,1) 0%, rgba(5,12,153,1) 100%);
-background: -ms-radial-gradient(center, ellipse cover, rgba(75,164,232,1) 0%, rgba(5,12,153,1) 100%);
-background: radial-gradient(ellipse at center, rgba(75,164,232,1) 0%, rgba(5,12,153,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4ba4e8', endColorstr='#050c99', GradientType=1 );
+  background: rgba(75,164,232,1);
+  background: -moz-radial-gradient(center, ellipse cover, rgba(75,164,232,1) 0%, rgba(5,12,153,1) 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(75,164,232,1)), color-stop(100%, rgba(5,12,153,1)));
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(75,164,232,1) 0%, rgba(5,12,153,1) 100%);
+  background: -o-radial-gradient(center, ellipse cover, rgba(75,164,232,1) 0%, rgba(5,12,153,1) 100%);
+  background: -ms-radial-gradient(center, ellipse cover, rgba(75,164,232,1) 0%, rgba(5,12,153,1) 100%);
+  background: radial-gradient(ellipse at center, rgba(75,164,232,1) 0%, rgba(5,12,153,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4ba4e8', endColorstr='#050c99', GradientType=1 );
 }
 
 .playingSong, .playingSong:hover {
   background: rgba(85,224,157,1);
-background: -moz-radial-gradient(center, ellipse cover, rgba(85,224,157,1) 0%, rgba(20,122,40,1) 100%);
-background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(85,224,157,1)), color-stop(100%, rgba(20,122,40,1)));
-background: -webkit-radial-gradient(center, ellipse cover, rgba(85,224,157,1) 0%, rgba(20,122,40,1) 100%);
-background: -o-radial-gradient(center, ellipse cover, rgba(85,224,157,1) 0%, rgba(20,122,40,1) 100%);
-background: -ms-radial-gradient(center, ellipse cover, rgba(85,224,157,1) 0%, rgba(20,122,40,1) 100%);
-background: radial-gradient(ellipse at center, rgba(85,224,157,1) 0%, rgba(20,122,40,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#55e09d', endColorstr='#147a28', GradientType=1 );
+  background: -moz-radial-gradient(center, ellipse cover, rgba(85,224,157,1) 0%, rgba(20,122,40,1) 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(85,224,157,1)), color-stop(100%, rgba(20,122,40,1)));
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(85,224,157,1) 0%, rgba(20,122,40,1) 100%);
+  background: -o-radial-gradient(center, ellipse cover, rgba(85,224,157,1) 0%, rgba(20,122,40,1) 100%);
+  background: -ms-radial-gradient(center, ellipse cover, rgba(85,224,157,1) 0%, rgba(20,122,40,1) 100%);
+  background: radial-gradient(ellipse at center, rgba(85,224,157,1) 0%, rgba(20,122,40,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#55e09d', endColorstr='#147a28', GradientType=1 );
+}
+
+
+#progressBar {
+  height: 10px;
+  width: 600px;
+  background-color: blue;
+  word-break: break-all;
+}
+
+#progress {
+  height: 10px;
+  background-color: lime;
+  float: left;
+  word-break: break-all;
+}
+
+#duration {
+  height: 60px;
+  width: 100px;
+  color: lime;
+  background-color: black;
+  display: inline-block;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  float: right;
+  line-height: 60px;
+  font-size: 18px;
+  word-break: break-all;
 }

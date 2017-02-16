@@ -8,7 +8,7 @@ $(function() {
   let $songCounter = 1;
   let previousSong = false;
   const $currentSong = new Audio();
-  $currentSong.src = '../audio/one.mp3';
+  $currentSong.src = false;
   let $songOne = new Audio('../audio/one.mp3');
 
 //-----------------------------------------------SWITCHING PAGE CONTENT------------------------------------------------------------//
@@ -43,6 +43,7 @@ $(function() {
   function goMusic() {
     $songOne.pause();
     $songOne = null;
+    $currentSong.src = '../audio/one.mp3';
     $('.content').css('animation', 'fadeOutObject 3s');
     setTimeout(function(){
       $('.content').empty();
@@ -52,10 +53,11 @@ $(function() {
         <div id="audioArt"><img src="../images/monk.jpg" alt="EP cover"/></div>
         <div id="progressBar"><div id="progress"></div></div>
         <div id="nowPlaying">
-        <i id="previousButton" class="fa fa-backward"></i>
+        <i style="margin-left: 120px;" id="previousButton" class="fa fa-backward"></i>
         <i id="playButton" class="fa fa-play"></i>
         <i id="nextButton" class="fa fa-forward"></i>
         </div>
+        <h4 id="duration">0:00</h4>
           <ul>
             <li id="one" data-id="1" class="song offSong">OnE</li>
             <li id="w4u" data-id="2" class="song offSong">WAITInG FOr YOU</li>
@@ -116,7 +118,7 @@ $(function() {
     $currentSong.src = `../audio/${track}.mp3`;
     previousSong = track;
     $currentSong.currentTime = 0;
-    // showDuration();
+    showDuration();
     if (autoplay === 'autoplay') {
       $(`#${previousTrack}`).removeClass('playingSong');
       $(`#${previousTrack}`).addClass('offSong');
@@ -198,21 +200,22 @@ $(function() {
   $currentSong.onended = playNext;
 
   function showDuration(){
-    $($currentSong).bind('timeupdate',function(){
-      var s = parseInt($currentSong.currentTime % 60);
-      var m = parseInt($currentSong.currentTime / 60) % 60;
-      if(s < 10){
-        s = '0'+s;
-      }
-      $('#duration').html(m + ':'+ s);
-      let value = 0;
-      if($currentSong.currentTime > 0){
-        value = Math.floor((100 / $currentSong.duration) * $currentSong.currentTime);
-      }
-      $('#progress').css('width',value+'%');
-    });
+    if($currentSong.src) {
+      $($currentSong).bind('timeupdate',function(){
+        var s = parseInt($currentSong.currentTime % 60);
+        var m = parseInt($currentSong.currentTime / 60) % 60;
+        if(s < 10){
+          s = '0'+s;
+        }
+        $('#duration').html(m + ':'+ s);
+        let value = 0;
+        if($currentSong.currentTime > 0){
+          value = Math.floor((100 / $currentSong.duration) * $currentSong.currentTime);
+        }
+        $('#progress').css('width',value+'%');
+      });
+    }
   }
-
 //----------------------------------------------------VIDEO PAGE-------------------------------------------------------------//
 
   const video = '<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fsabretoothmonkmusic%2Fvideos%2F1399419080092748%2F&show_text=0&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>';
