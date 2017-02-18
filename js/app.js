@@ -34,9 +34,10 @@ $(function() {
     $('.content').css('animation', 'fadeOutObject 3s');
     setTimeout(function(){
       $('.content').empty();
+      spawnVideos();
       $('.content').prepend(
-        `<h1 id="homeLink" class="fadeIn">SABrE TOOTH MOnK</h1>\
-        ${video}`);
+        '<h1 id="homeLink" class="fadeIn">SABrE TOOTH MOnK</h1>'
+      );
     }, 3000);
   }
 
@@ -218,7 +219,13 @@ $(function() {
   }
 //----------------------------------------------------VIDEO PAGE-------------------------------------------------------------//
 
-  const video = '<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fsabretoothmonkmusic%2Fvideos%2F1399419080092748%2F&show_text=0&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>';
+  const videos = ['https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fsabretoothmonkmusic%2Fvideos%2F1399419080092748%2F&show_text=0&width=560', 'https://www.youtube.com/embed/ZjaF7XhVa4o'];
+
+  function spawnVideos() {
+    for (let i = 0; i < videos.length; i ++) {
+      $('.content').prepend(`<iframe src="${videos[i]}" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>`);
+    }
+  }
 
 //----------------------------------------------------CLICK LISTENERS-----------------------------------------------------------//
 
