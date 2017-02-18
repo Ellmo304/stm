@@ -110,31 +110,25 @@ $(function() {
   }
   ];
 
-
   function checkSong(autoplay) {
     if ($songCounter !== 1) {
       $('#one').removeClass('playingSong');
       $('#one').addClass('offSong');
     }
-    if (previousSong !== false) {
+    if (previousSong) {
       $(`#${previousSong}`).removeClass('playingSong');
       $(`#${previousSong}`).addClass('offSong');
     }
     $currentSong.src = null;
     console.log($songCounter);
-    switch ($songCounter) {
-      case 1 : { setSong('one', autoplay);}
-        break;
-      case 2 : { setSong('w4u', autoplay, 'one');}
-        break;
-      case 3 : { setSong('fangs', autoplay, 'w4u');}
-        break;
-      case 4 : { setSong('smile', autoplay, 'fangs');}
-        break;
-      case 5 : { setSong('y3h', autoplay, 'smile');}
-        break;
-      case 6 : { setSong('bamboo', autoplay, 'y3h');}
-        break;
+    if($songCounter === 1) {
+      setSong(`${songs[0].src}`, autoplay);
+    } else {
+      for (let i = 0; i < songs.length; i ++) {
+        if (songs[i].trackNo === $songCounter) {
+          setSong(`${songs[i].src}`, autoplay, `${songs[i-1].src}`);
+        }
+      }
     }
   }
 
