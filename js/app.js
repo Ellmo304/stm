@@ -59,16 +59,13 @@ $(function() {
         <i id="nextButton" class="fa fa-forward"></i>
         </div>
         <h4 id="duration">0:00</h4>
-          <ul>
-            <li id="one" data-id="1" class="song offSong">OnE</li>
-            <li id="w4u" data-id="2" class="song offSong">WAITInG FOr YOU</li>
-            <li id="fangs" data-id="3" class="song offSong">BABY, THESE FAnGS ArE POISOn</li>
-            <li id="smile" data-id="4" class="song offSong">SMILE</li>
-            <li id="y3h" data-id="5" class="song offSong">Y3H!</li>
-            <li id="bamboo" data-id="6" class="song offSong">BAMBOO rIDGE</li>
+          <ul id="songList">
           </ul>
         </div>`
       );
+      for (let i = 0; i < songs.length; i ++) {
+        $('#songList').append(`<li id="${songs[i].src}" data-id="${songs[i].trackNo}" class="song offSong">${songs[i].title}</li>`);
+      }
     }, 3000);
   }
 
@@ -85,6 +82,34 @@ $(function() {
   }
 
 //----------------------------------------------AUDIO PLAYER/MUSIC PAGE----------------------------------------------------------//
+
+  const songs = [{
+    title: 'OnE',
+    src: 'one',
+    trackNo: 1
+  },{
+    title: 'WAITInG FOr YOU',
+    src: 'w4u',
+    trackNo: 2
+  }, {
+    title: 'BABY, THESE FAnGS ArE POISOn',
+    src: 'fangs',
+    trackNo: 3
+  }, {
+    title: 'SMILE',
+    src: 'smile',
+    trackNo: 4
+  }, {
+    title: 'Y3H!',
+    src: 'y3h',
+    trackNo: 5
+  }, {
+    title: 'BAMBOO rIDGE',
+    src: 'bamboo',
+    trackNo: 6
+  }
+  ];
+
 
   function checkSong(autoplay) {
     if ($songCounter !== 1) {
