@@ -22,35 +22,40 @@ $(function() {
     $('#splashDiv').css('animation', 'fadeOutObject 3s');
     setTimeout(function(){
       $('#splashDiv').remove();
-      $('.content').append(
-        ' <img class="fadeIn" class="bannerImage" src="../images/banner.jpg" alt="bandPhoto"/>\
+      $('.content').html(
+        ' <img class="bannerImage fadeIn" src="../images/banner.jpg" alt="bandPhoto"/>\
         <h1 class="fadeIn">SABrE TOOTH MOnK</h1>\
-        <div id="c1" class="choice fadeIn"><h2>MUsic</h2></div><div  id="c2" class="choice fadeIn"><h2>VidEos</h2></div><div id="c3" class="choice fadeIn"><h2>Gigs</h2></div>');
+        <div id="c1" class="choice fadeIn"><h2>MUsic</h2></div><div id="c2" class="choice fadeIn"><h2>VidEos</h2></div><div id="c3" class="choice fadeIn"><h2>Gigs</h2></div>');
     }, 3000);
   });
 
   function goVideos() {
-    $songOne.pause();
+    if($songOne !== false) {
+      $songOne.pause();
+      $songOne = false;
+    }
     $('.content').css('animation', 'fadeOutObject 3s');
     setTimeout(function(){
       $('.content').empty();
-      spawnVideos();
-      $('.content').prepend(
+      $('.content').html(
         '<h1 id="homeLink" class="fadeIn">SABrE TOOTH MOnK</h1>'
       );
-    }, 3000);
+      spawnVideos();
+    }, 2800);
   }
 
   function goMusic() {
-    $songOne.pause();
-    $songOne = null;
+    if($songOne !== false) {
+      $songOne.pause();
+      $songOne = false;
+    }
     $currentSong.src = '../audio/one.mp3';
     $('.content').css('animation', 'fadeOutObject 3s');
     setTimeout(function(){
       $('.content').empty();
-      $('.content').prepend(
+      $('.content').html(
         `<h1 id="homeLink" class="fadeIn">SABrE TOOTH MOnK</h1>\
-        <div id="audioPlayer">
+        <div class="fadeIn" id="audioPlayer">
         <div id="audioArt"><img src="../images/monk.jpg" alt="EP cover"/></div>
         <div id="progressBar"><div id="progress"></div></div>
         <div id="nowPlaying">
@@ -64,21 +69,20 @@ $(function() {
         </div>`
       );
       for (let i = 0; i < songs.length; i ++) {
-        $('#songList').append(`<li id="${songs[i].src}" data-id="${songs[i].trackNo}" class="song offSong">${songs[i].title}</li>`);
+        $('#songList').append(`<li id="${songs[i].src}" data-id="${songs[i].trackNo}" class="song offSong fadeIn">${songs[i].title}</li>`);
       }
-    }, 3000);
+    }, 2800);
   }
 
   function goHomepage() {
     $('body').css('animation', 'fadeOutObject 3s');
     setTimeout(function() {
       $('.content').empty();
-      $('.content').append(
+      $('.content').html(
         ' <img class="bannerImage fadeIn" src="../images/banner.jpg" alt="bandPhoto"/>\
         <h1 class="fadeIn">SABrE TOOTH MOnK</h1>\
-        <div id="c1" class="choice"><h2>MUsic</h2></div><div id="c2" class="choice"><h2>VidEos</h2></div><div id="c3" class="choice"><h2>Gigs</h2></div>');
-      $songOne.play();
-    }, 3000);
+        <div id="c1" class="choice fadeIn"><h2>MUsic</h2></div><div id="c2" class="choice fadeIn"><h2>VidEos</h2></div><div id="c3" class="choice fadeIn"><h2>Gigs</h2></div>');
+    }, 2800);
   }
 
 //----------------------------------------------AUDIO PLAYER/MUSIC PAGE----------------------------------------------------------//
@@ -242,7 +246,7 @@ $(function() {
 
   function spawnVideos() {
     for (let i = 0; i < videos.length; i ++) {
-      $('.content').prepend(`<iframe src="${videos[i]}" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>`);
+      $('.content').append(`<div class="fadeIn video"><iframe src="${videos[i]}" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe></div>`);
     }
   }
 
