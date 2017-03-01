@@ -136,7 +136,7 @@ h1 {
   display: inline-block;
 }
 
-ul {
+#songList {
   max-height: 204px;
   overflow: auto;
   margin-top: 0px;
@@ -250,4 +250,19 @@ i:hover {
 video {
   display: inline-block;
   margin: 0 auto;
+}
+
+#gigList {
+  height: 700px;
+  list-style-type: none;
+  overflow: auto;
+}
+
+#gigList > li {
+  list-style-type: none;
+  margin-bottom: 60px;
+}
+
+h2.subtitle {
+  font-size: 60px;
 }
