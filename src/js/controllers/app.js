@@ -32,37 +32,7 @@
 //     }, 3000);
 //   });
 //
-//   function goGigs() {
-//     if($songOne !== false) {
-//       $songOne.pause();
-//       $songOne = false;
-//     }
-//     $('.content').css('animation', 'fadeOutObject 3s');
-//     setTimeout(function(){
-//       $('.content').empty();
-//       $('.content').html(
-//         '<h1 id="homeLink" class="fadeIn">SABrE TOOTH MOnK</h1>\
-//         <h2 class="subtitle">UPCOMING SHOWS</h1>\
-//         <ul id="gigList"></ul>'
-//       );
-//       spawnGigs();
-//     }, 2800);
-//   }
-//
-//   function goVideos() {
-//     if($songOne !== false) {
-//       $songOne.pause();
-//       $songOne = false;
-//     }
-//     $('.content').css('animation', 'fadeOutObject 3s');
-//     setTimeout(function(){
-//       $('.content').empty();
-//       $('.content').html(
-//         '<h1 id="homeLink" class="fadeIn">SABrE TOOTH MOnK</h1>'
-//       );
-//       spawnVideos();
-//     }, 2800);
-//   }
+
 //
 //   function goMusic() {
 //     if($songOne !== false) {
@@ -93,22 +63,7 @@
 //       }
 //     }, 2800);
 //   }
-//
-//   function goHomepage() {
-//     if($currentSong.src !== false) {
-//       $currentSong.pause();
-//       $currentSong.src = false;
-//     }
-//     $('body').css('animation', 'fadeOutObject 3s');
-//     setTimeout(function() {
-//       $('.content').empty();
-//       $('.content').html(
-//         ' <img class="bannerImage fadeIn" src="../images/banner.jpg" alt="bandPhoto"/>\
-//         <h1 class="fadeIn">SABrE TOOTH MOnK</h1>\
-//         <div id="c1" class="choice fadeIn"><h2>MUsic</h2></div><div id="c2" class="choice fadeIn"><h2>VidEos</h2></div><div id="c3" class="choice fadeIn"><h2>Gigs</h2></div>');
-//     }, 2800);
-//   }
-//
+
 // //----------------------------------------------AUDIO PLAYER/MUSIC PAGE----------------------------------------------------------//
 //
 //   const songs = [{
@@ -265,48 +220,8 @@
 //     }
 //   }
 // //----------------------------------------------------VIDEO PAGE-------------------------------------------------------------//
-//
-//   const videos = ['https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fsabretoothmonkmusic%2Fvideos%2F1399419080092748%2F&show_text=0&width=560', 'https://www.youtube.com/embed/ZjaF7XhVa4o'];
-//
-//   function spawnVideos() {
-//     for (let i = 0; i < videos.length; i ++) {
-//       $('.content').append(`<div class="fadeIn video"><iframe src="${videos[i]}" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe></div>`);
-//     }
-//   }
+
 //   //----------------------------------------------------GIGS PAGE-------------------------------------------------------------//
-//
-//   const gigs = [{
-//     venue: 'THE MOULDY BASEMEnT',
-//     date: '03.04.17',
-//     location: '456 MOULD STrEET, EC1V',
-//     tube: 'OLD SrEET',
-//     info: 'STM On STAGE AT 10, SUPPOrT FrOM BLAH, BLAH AND BLAH'
-//   },{
-//     venue: 'THE SInKInG SHIP',
-//     date: '21.04.17',
-//     location: '890 nO STrEET, nW6',
-//     tube: 'BrOnDESBUrY',
-//     info: 'STM On STAGE AT 10, SUPPOrT FrOM BLAH, BLAH AND BLAH'
-//   }, {
-//     venue: 'THE DUSTY CASTLE',
-//     date: '12.05.17',
-//     location: '123 FAKE STrEET, CAMDEn, nW1',
-//     tube: 'CAMDEn TOWn',
-//     info: 'STM On STAGE AT 10, SUPPOrT FrOM BLAH, BLAH AND BLAH'
-//   }];
-//
-//   function spawnGigs() {
-//     for (let i = 0; i < gigs.length; i ++) {
-//       $('#gigList').append(`
-//         <li>
-//           <h2>${gigs[i].venue}</h2>
-//           <p><strong>${gigs[i].date}</strong></p>
-//           <p><strong>nEArEST TUBE:</strong> ${gigs[i].tube}</p>
-//           <p><strong>ADDrESS: </strong>${gigs[i].location}</p>
-//           <p><strong>InFO: </strong>${gigs[i].info}</p>
-//         </li>`);
-//     }
-//   }
 //
 // //----------------------------------------------------CLICK LISTENERS-----------------------------------------------------------//
 //

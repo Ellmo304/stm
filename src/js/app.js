@@ -1,4 +1,9 @@
 angular.module('stmApp', ['ngResource', 'ui.router'])
+.filter('trusted', ['$sce', function ($sce) {
+    return function(url) {
+        return $sce.trustAsResourceUrl(url);
+    };
+}])
 .config(Router);
 
 
