@@ -1,4 +1,4 @@
-@font-face { font-family: Kremlin; src: url('/kremlin.ttf') format("truetype"); }
+@font-face { font-family: "Kremlin"; src: url('../fonts/kremlin.ttf') format("truetype"); }
 
 body {
   background-color: white;
@@ -23,7 +23,7 @@ h1 {
 }
 
 .content {
-  font-family: Kremlin, sans-serif;
+  font-family: "Kremlin", sans-serif;
   margin-left: -10px;
   height: 100vh;
   background-color: white;

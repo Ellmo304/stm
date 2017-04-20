@@ -1,0 +1,13 @@
+<div class="content fadeIn">
+  <h1 id="homeLink">SABrE TOOTH MOnK</h1>
+  <h2 class="subtitle">UPCOMING SHOWS</h2>
+  <ul id="gigList" ng-controller="GigsController as gigs">
+    <li ng-repeat="gig in gigs.gigList">
+      <h2>{{gig.venue}}</h2>
+      <p><strong>{{gigs.date}}</strong></p>
+      <p><strong>nEArEST TUBE: </strong>{{gig.tube}}</p>
+      <p><strong>ADDrESS: </strong>{{gig.location}}</p>
+      <p><strong>InFO: </strong>{{gig.info}}</p>
+    </li>
+  </ul>
+</div>

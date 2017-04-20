@@ -77,6 +77,14 @@ gulp.task('html', () => {
     .pipe(livereload());
 });
 
+// fonts
+gulp.task('fonts', () => {
+  return gulp.src('src/fonts/kremlin.ttf')
+    .pipe(gulp.dest('public/fonts'))
+    .pipe(livereload());
+});
+
+
 // nodemon
 gulp.task('nodemon', () => {
   return nodemon()
@@ -93,6 +101,7 @@ gulp.task('watch', () => {
   gulp.watch('src/**/*.html', ['html']);
   gulp.watch('src/**/*.js', ['scripts']);
   gulp.watch('src/**/*.scss', ['styles']);
+  gulp.watch('src/**/*.ttf', ['fonts']);
 });
 
-gulp.task('default', sequence('clean', ['bower:js', 'bower:css'], ['scripts', 'styles', 'html'], 'watch', 'nodemon'));
+gulp.task('default', sequence('clean', ['bower:js', 'bower:css'], ['scripts', 'styles', 'html', 'fonts'], 'watch', 'nodemon'));
