@@ -43,26 +43,26 @@
 //     $('.content').css('animation', 'fadeOutObject 3s');
 //     setTimeout(function(){
 //       $('.content').empty();
-//       $('.content').html(
-//         `<h1 id="homeLink" class="fadeIn">SABrE TOOTH MOnK</h1>\
-//         <div class="fadeIn" id="audioPlayer">
-//         <div id="audioArt"><img src="../images/monk.jpg" alt="EP cover"/></div>
-//         <div id="progressBar"><div id="progress"></div></div>
-//         <div id="nowPlaying">
-//         <i style="margin-left: 120px;" id="previousButton" class="fa fa-backward"></i>
-//         <i id="playButton" class="fa fa-play"></i>
-//         <i id="nextButton" class="fa fa-forward"></i>
-//         </div>
-//         <h4 id="duration">0:00</h4>
-//           <ul id="songList">
-//           </ul>
-//         </div>`
-//       );
-//       for (let i = 0; i < songs.length; i ++) {
-//         $('#songList').append(`<li id="${songs[i].src}" data-id="${songs[i].trackNo}" class="song offSong fadeIn">${songs[i].title}</li>`);
-//       }
-//     }, 2800);
-//   }
+  //     $('.content').html(
+  //       `<h1 id="homeLink" class="fadeIn">SABrE TOOTH MOnK</h1>\
+  //       <div class="fadeIn" id="audioPlayer">
+  //       <div id="audioArt"><img src="../images/monk.jpg" alt="EP cover"/></div>
+  //       <div id="progressBar"><div id="progress"></div></div>
+  //       <div id="nowPlaying">
+  //       <i style="margin-left: 120px;" id="previousButton" class="fa fa-backward"></i>
+  //       <i id="playButton" class="fa fa-play"></i>
+  //       <i id="nextButton" class="fa fa-forward"></i>
+  //       </div>
+  //       <h4 id="duration">0:00</h4>
+  //         <ul id="songList">
+  //         </ul>
+  //       </div>`
+  //     );
+  //     for (let i = 0; i < songs.length; i ++) {
+  //       $('#songList').append(`<li id="${songs[i].src}" data-id="${songs[i].trackNo}" class="song offSong fadeIn">${songs[i].title}</li>`);
+  //     }
+  //   }, 2800);
+  // }
 
 // //----------------------------------------------AUDIO PLAYER/MUSIC PAGE----------------------------------------------------------//
 //

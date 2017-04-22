@@ -1,0 +1,17 @@
+<div class="content fadeIn">
+  <h1 id="homeLink" ui-sref="home" >SABrE TOOTH MOnK</h1>
+  <h2 class="subtitle">MUSIC</h2>
+  <div id="audioPlayer" ng-controller="MusicController as music">
+    <div id="audioArt"><img src="../images/monk.jpg" alt="EP cover"/></div>
+    <div id="progressBar"><div id="progress"></div></div>
+    <div id="nowPlaying">
+      <i style="margin-left: 120px;" id="previousButton" class="fa fa-backward"></i>
+      <i id="playButton" class="fa fa-play"></i>
+      <i id="nextButton" class="fa fa-forward"></i>
+    </div>
+    <h4 id="duration">0:00</h4>
+    <ul id="songList">
+      <li ng-repeat="song in music.songList" id="{{song.src}}" data-id="{{song.trackNo}}" class="song offSong">{{song.title}}</li>
+    </ul>
+  </div>
+</div>
