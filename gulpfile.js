@@ -85,6 +85,13 @@ gulp.task('fonts', () => {
 });
 
 
+// audio
+gulp.task('audio', () => {
+  return gulp.src('src/audio/*.mp3')
+    .pipe(gulp.dest('public/audio'))
+    .pipe(livereload());
+});
+
 // nodemon
 gulp.task('nodemon', () => {
   return nodemon()
@@ -102,6 +109,7 @@ gulp.task('watch', () => {
   gulp.watch('src/**/*.js', ['scripts']);
   gulp.watch('src/**/*.scss', ['styles']);
   gulp.watch('src/**/*.ttf', ['fonts']);
+  gulp.watch('src/**/*.mp3', ['audio']);
 });
 
-gulp.task('default', sequence('clean', ['bower:js', 'bower:css'], ['scripts', 'styles', 'html', 'fonts'], 'watch', 'nodemon'));
+gulp.task('default', sequence('clean', ['bower:js', 'bower:css'], ['scripts', 'styles', 'html', 'fonts', 'audio'], 'watch', 'nodemon'));

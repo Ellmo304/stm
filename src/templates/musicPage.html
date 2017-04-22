@@ -5,13 +5,14 @@
     <div id="audioArt"><img src="../images/monk.jpg" alt="EP cover"/></div>
     <div id="progressBar"><div id="progress"></div></div>
     <div id="nowPlaying">
-      <i style="margin-left: 120px;" id="previousButton" class="fa fa-backward"></i>
-      <i id="playButton" class="fa fa-play"></i>
-      <i id="nextButton" class="fa fa-forward"></i>
+      <i style="margin-left: 120px;" ng-click="music.trackChange('previous')" id="previousButton" class="fa fa-backward"></i>
+      <i id="playButton" ng-if="music.playPauseCounter % 2 === 0" ng-click="music.playSong()" class="fa fa-play"></i>
+      <i id="playButton" style="padding-left: 2.5px; padding-right: 2.5px;" ng-if="music.playPauseCounter % 2 !== 0" ng-click="music.playSong()" class="fa fa-pause"></i>
+      <i id="nextButton" ng-click="music.trackChange('next')" class="fa fa-forward"></i>
     </div>
     <h4 id="duration">0:00</h4>
     <ul id="songList">
-      <li ng-repeat="song in music.songList" id="{{song.src}}" data-id="{{song.trackNo}}" class="song offSong">{{song.title}}</li>
+      <li ng-repeat="song in music.songList" ng-click="music.playSong(song.src, 'autoplay')" id="{{song.src}}" data-id="{{song.trackNo}}" class="song offSong">{{song.src}}</li>
     </ul>
   </div>
 </div>
