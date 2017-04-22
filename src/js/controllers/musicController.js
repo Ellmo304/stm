@@ -36,7 +36,7 @@ function MusicController($state) {
   function click() {
     console.log(this);
   }
-  function playSong(track, autoplay) {
+  function playSong(track, index, autoplay) {
     if (!this.currentSong.src) {
       this.currentSong.src = `../../audio/one.mp3`;
     }
@@ -44,6 +44,7 @@ function MusicController($state) {
       if (autoplay) {
         this.playPauseCounter = 1;
       }
+      this.songCounter = index;
       this.currentSong.pause();
       this.currentSong.src = null;
       this.currentSong.src = `../../audio/${track}.mp3`;
@@ -73,20 +74,40 @@ function MusicController($state) {
   }
   function chooseSong() {
     switch (this.songCounter) {
-      case 1 : this.playSong('one');
+      case 1 : this.playSong('one', 1);
       break;
-      case 2 : this.playSong('w4u');
+      case 2 : this.playSong('w4u', 2);
       break;
-      case 3 : this.playSong('fangs');
+      case 3 : this.playSong('fangs', 3);
       break;
-      case 4 : this.playSong('smile');
+      case 4 : this.playSong('smile', 4);
       break;
-      case 5 : this.playSong('y3h');
+      case 5 : this.playSong('y3h', 5);
       break;
-      case 6 : this.playSong('bamboo');
+      case 6 : this.playSong('bamboo', 6);
       break;
     }
   }
+
+  // function showDuration(){
+  //   if(this.currentSong.src) {
+  //     this.currentSong.bind('timeupdate',function(){
+  //       var s = parseInt(this.currentSong.currentTime % 60);
+  //       var m = parseInt(this.currentSong.currentTime / 60) % 60;
+  //       if(s < 10){
+  //         s = '0'+s;
+  //       }
+  //       this.duration = (m + ':'+ s);
+  //       let value = 0;
+  //     //   if(this.currentSong.currentTime > 0){
+  //     //     value = Math.floor((100 / $currentSong.duration) * $currentSong.currentTime);
+  //     //   }
+  //     //   $('#progress').css('width',value+'%');
+  //     // });
+  //   }
+  // }
+  this.duration = '00:00';
+  // this.showDuration = showDuration;
   this.playSong = playSong;
   this.trackChange = trackChange;
   this.chooseSong = chooseSong;

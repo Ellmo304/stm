@@ -200,25 +200,25 @@
 //     checkTrackNo(autoplay);
 //   }
 //
-//   $currentSong.onended = playNext;
-//
-//   function showDuration(){
-//     if($currentSong.src) {
-//       $($currentSong).bind('timeupdate',function(){
-//         var s = parseInt($currentSong.currentTime % 60);
-//         var m = parseInt($currentSong.currentTime / 60) % 60;
-//         if(s < 10){
-//           s = '0'+s;
-//         }
-//         $('#duration').html(m + ':'+ s);
-//         let value = 0;
-//         if($currentSong.currentTime > 0){
-//           value = Math.floor((100 / $currentSong.duration) * $currentSong.currentTime);
-//         }
-//         $('#progress').css('width',value+'%');
-//       });
-//     }
-//   }
+  // $currentSong.onended = playNext;
+
+  // function showDuration(){
+  //   if($currentSong.src) {
+  //     $($currentSong).bind('timeupdate',function(){
+  //       var s = parseInt($currentSong.currentTime % 60);
+  //       var m = parseInt($currentSong.currentTime / 60) % 60;
+  //       if(s < 10){
+  //         s = '0'+s;
+  //       }
+  //       $('#duration').html(m + ':'+ s);
+  //       let value = 0;
+  //       if($currentSong.currentTime > 0){
+  //         value = Math.floor((100 / $currentSong.duration) * $currentSong.currentTime);
+  //       }
+  //       $('#progress').css('width',value+'%');
+  //     });
+  //   }
+  // }
 // //----------------------------------------------------VIDEO PAGE-------------------------------------------------------------//
 
 //   //----------------------------------------------------GIGS PAGE-------------------------------------------------------------//
