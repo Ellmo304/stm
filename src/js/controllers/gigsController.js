@@ -5,24 +5,12 @@ GigsController.$inject = ['$state'];
 function GigsController($state) {
   const gigs = this;
   gigs.gigList = [{
-      venue: 'THE MOULDY BASEMEnT',
-      date: '03.04.17',
-      location: '456 MOULD STrEET, EC1V',
-      tube: 'OLD SrEET',
-      info: 'STM On STAGE AT 10, SUPPOrT FrOM BLAH, BLAH AND BLAH'
-    },{
-      venue: 'THE SInKInG SHIP',
-      date: '21.04.17',
-      location: '890 nO STrEET, nW6',
-      tube: 'BrOnDESBUrY',
-      info: 'STM On STAGE AT 10, SUPPOrT FrOM BLAH, BLAH AND BLAH'
-    }, {
-      venue: 'THE DUSTY CASTLE',
-      date: '12.05.17',
-      location: '123 FAKE STrEET, CAMDEn, nW1',
-      tube: 'CAMDEn TOWn',
-      info: 'STM On STAGE AT 10, SUPPOrT FrOM BLAH, BLAH AND BLAH'
+      venue: 'EP LAUNCH AT THE GOOD SHIP',
+      date: '13TH MArCH 2017   ||   FrOM 19.30 TIL 03.00',
+      image: '../../images/look-down.jpg',
+      location: 'THE GOOD SHIP, 289 KILBUrn HIGH rOAD, NW6 7Jr, LOnDOn, UnITED KInGDOM',
+      tubes: 'KILBUrN, BrOnDESBUrY, KILBUrn HIGH rOAD',
+      info: 'LIVE SETS FrOM: SABrE TOOTH MOnK / SUBUrBAn MInDS / PETEr rOCH / SHYEr / SErE TrOUBLE - PLUS DJS AFTEr TIL 2.30AM AT nO EXTrA COST!',
+      link: 'https://www.facebook.com/events/1896813050608331/',
     }];
-
-  console.log(gigs, $state);
 }

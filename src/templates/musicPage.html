@@ -1,18 +1,23 @@
 <div class="content fadeIn">
-  <h1 id="homeLink" ui-sref="home" >SABrE TOOTH MOnK</h1>
-  <h2 class="subtitle">MUSIC</h2>
-  <div id="audioPlayer" ng-controller="MusicController as music">
-    <div id="audioArt"><img src="../images/monk.jpg" alt="EP cover"/></div>
-    <div id="progressBar"><div id="progress"></div></div>
+  <!-- <h1 id="homeLink" ui-sref="home" >SABrE TOOTH MOnK</h1> -->
+  <!-- <h2 class="subtitle">MUSIC</h2> -->
+  <!-- <div id="audioPlayer" ng-controller="MusicController as music"> -->
+  <!-- <div id="audioArt"><img src="../images/monk.jpg" alt="EP cover"/></div> -->
+  <!-- <div id="progressBar"><div id="progress"></div></div> -->
+  <div id="boombox">
+    <h1 id="homeLink" ui-sref="home" class="musicHeader" ng-click="home.change()" >SABrE TOOTH MOnK</h1>
     <div id="nowPlaying">
       <i style="margin-left: 120px;" ng-click="music.trackChange('previous')" ng-class="{ 'disabled': music.songCounter === 1 }" id="previousButton" class="fa fa-backward"></i>
       <i id="playButton" ng-if="music.playPauseCounter % 2 === 0" ng-click="music.playSong()" class="fa fa-play"></i>
       <i id="playButton" style="padding-left: 2.5px; padding-right: 2.5px;" ng-if="music.playPauseCounter % 2 !== 0" ng-click="music.playSong()" class="fa fa-pause"></i>
       <i id="nextButton" ng-class="{ 'disabled': music.songCounter === 6 }" ng-click="music.trackChange('next')" class="fa fa-forward"></i>
     </div>
-    <h4 id="duration">{{music.duration}}</h4>
-    <ul id="songList">
-      <li ng-repeat="song in music.songList" ng-click="music.playSong(song.src, $index+1, 'autoplay')" id="{{song.src}}" data-id="{{song.trackNo}}" class="song" ng-class="{ 'playingSong': $index+1 === music.songCounter, 'offSong': $index+1 !== music.songCounter, }">{{song.title}}</li>
-    </ul>
+    <!-- <h4 id="duration">{{music.duration}}</h4> -->
+    <div id="trackContainer">
+      <ul id="songList">
+        <li ng-repeat="song in music.songList" ng-click="music.playSong(song.src, $index+1, 'autoplay')" id="{{song.src}}" data-id="{{song.trackNo}}" class="song" ng-class="{ 'playingSong': $index+1 === music.songCounter, 'offSong': $index+1 !== music.songCounter, }">{{song.title}}</li>
+      </ul>
+      <!-- </div> -->
+    </div>
   </div>
 </div>

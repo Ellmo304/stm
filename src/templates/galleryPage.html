@@ -1,0 +1,12 @@
+<div class="content fadeIn">
+  <h1 ui-sref="home" id="homeLink">SABrE TOOTH MOnK</h1>
+  <h2 class="subtitle">GALLErY</h2>
+  <div ng-if="gallery.showGallery === true">
+    <img ng-repeat="image in gallery.imageList" ng-click="gallery.showImage(image.title)"  class="galleryImage" ng-src="{{image.src}}">
+  </div>
+  <div ng-if="gallery.showGallery !== true">
+    <img ng-click="gallery.showGallery = true" class="blowUpImage" ng-src={{gallery.blowImage}}>
+    <button type="button" ng-click="gallery.showGallery = true" class="backButton">BACK TO GALLErY</button>
+  </div>
+
+</div>

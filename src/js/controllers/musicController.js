@@ -33,9 +33,7 @@ function MusicController($state) {
     trackNo: 6
     }
   ];
-  function click() {
-    console.log(this);
-  }
+
   function playSong(track, index, autoplay) {
     if (!this.currentSong.src) {
       this.currentSong.src = `../../audio/one.mp3`;
@@ -111,5 +109,4 @@ function MusicController($state) {
   this.playSong = playSong;
   this.trackChange = trackChange;
   this.chooseSong = chooseSong;
-  console.log(music, $state);
 }

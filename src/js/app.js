@@ -34,6 +34,11 @@ function Router($stateProvider, $urlRouterProvider) {
       templateUrl: '/templates/videoPage.html',
       controller: 'VideoController as video'
     })
+    .state('gallery', {
+      url: '/gallery',
+      templateUrl: '/templates/galleryPage.html',
+      controller: 'GalleryController as gallery'
+    })
     .state('gigs', {
       url: '/gigs',
       templateUrl: '/templates/gigPage.html',
@@ -42,7 +47,7 @@ function Router($stateProvider, $urlRouterProvider) {
 
 //
 // For any unmatched url, redirect to /home
-  $urlRouterProvider.otherwise('/home');
+  $urlRouterProvider.otherwise('/');
 
 
 }

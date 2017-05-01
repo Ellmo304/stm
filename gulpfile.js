@@ -92,6 +92,13 @@ gulp.task('audio', () => {
     .pipe(livereload());
 });
 
+// images
+gulp.task('images', () => {
+  return gulp.src('src/images/*.*')
+    .pipe(gulp.dest('public/images'))
+    .pipe(livereload());
+});
+
 // nodemon
 gulp.task('nodemon', () => {
   return nodemon()
@@ -110,6 +117,7 @@ gulp.task('watch', () => {
   gulp.watch('src/**/*.scss', ['styles']);
   gulp.watch('src/**/*.ttf', ['fonts']);
   gulp.watch('src/**/*.mp3', ['audio']);
+  gulp.watch('src/**/*.jpg', ['images']);
 });
 
-gulp.task('default', sequence('clean', ['bower:js', 'bower:css'], ['scripts', 'styles', 'html', 'fonts', 'audio'], 'watch', 'nodemon'));
+gulp.task('default', sequence('clean', ['bower:js', 'bower:css'], ['scripts', 'styles', 'html', 'fonts', 'audio', 'images'], 'watch', 'nodemon'));

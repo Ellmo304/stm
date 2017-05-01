@@ -3,11 +3,15 @@
   <h2 class="subtitle">UPCOMING SHOWS</h2>
   <ul id="gigList" ng-controller="GigsController as gigs">
     <li ng-repeat="gig in gigs.gigList">
+      <a href={{gig.link}}>
       <h2>{{gig.venue}}</h2>
-      <p><strong>{{gigs.date}}</strong></p>
-      <p><strong>nEArEST TUBE: </strong>{{gig.tube}}</p>
+      <img style="width: 400px;" ng-src={{gig.image}} alt="gig image">
+      <p><strong>{{gig.date}}</strong></p>
+      <p><strong>nEArEST TUBE: </strong>{{gig.tubes}}</p>
       <p><strong>ADDrESS: </strong>{{gig.location}}</p>
       <p><strong>InFO: </strong>{{gig.info}}</p>
+      <button type="button" class="backButton" name="button">CLICK FOr MOrE InFO</button>
+    </a>
     </li>
   </ul>
 </div>
