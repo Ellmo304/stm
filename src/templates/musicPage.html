@@ -15,7 +15,7 @@
     <!-- <h4 id="duration">{{music.duration}}</h4> -->
     <div id="trackContainer">
       <ul id="songList">
-        <li ng-repeat="song in music.songList" ng-click="music.playSong(song.src, $index+1, 'autoplay')" id="{{song.src}}" data-id="{{song.trackNo}}" class="song" ng-class="{ 'playingSong': $index+1 === music.songCounter, 'offSong': $index+1 !== music.songCounter, }">{{song.title}}</li>
+        <li ng-repeat="song in music.songList" ng-click="music.playSong(song.src, $index+1, 'autoplay')" id="{{song.src}}" data-id="{{song.trackNo}}" class="song" ng-class="{ playingSong: $index+1 === music.songCounter, offSong: $index+1 !== music.songCounter }">{{song.title}}</li>
       </ul>
       <!-- </div> -->
     </div>

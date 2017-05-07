@@ -1,8 +1,8 @@
 angular.module('stmApp')
 .controller('MusicController', MusicController);
 
-MusicController.$inject = ['$state'];
-function MusicController($state) {
+MusicController.$inject = ['$state', '$scope'];
+function MusicController($state, $scope) {
   const music = this;
   this.playPauseCounter = 0;
   this.songCounter = 1;
@@ -86,6 +86,24 @@ function MusicController($state) {
       break;
     }
   }
+
+
+
+  this.currentSong.onended = function() {
+    console.log('hey');
+    if (music.songCounter < 6) {
+      music.currentSong.src = false;
+      console.log('hi');
+      const index = music.songCounter - 1;
+      const newIndex = index+1;
+      console.log(index, newIndex);
+      music.currentSong.src = `../../audio/${music.songList[newIndex].src}.mp3`;
+      music.currentSong.play();
+      music.songCounter ++;
+      $scope.$apply();
+    }
+  }
+
 
   // function showDuration(){
   //   if(this.currentSong.src) {
