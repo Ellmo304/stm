@@ -7,7 +7,14 @@
 
 </div>
 <div ng-if="landing.showHome === true" id="homeDiv" style="margin-top: -10px;" class="content fadeIn">
-  <h1 ng-click="landing.endSong()" id="homeLink" class="homeHeader" >SABrE TOOTH MOnK</h1>
+  <div class="svgHolder">
+    <a href="https://www.facebook.com/sabretoothmonkmusic"><div id="fb" class="svg"></div></a>
+    <a href="https://www.instagram.com/sabretoothmonk/"><div id="insta" class="svg"></div></a>
+    <div id="headerHolder"><h1 ng-click="landing.endSong()" id="homeLink" class="homeHeader" >SABrE TOOTH MOnK</h1></div>
+    <a href="https://soundcloud.com/sabretoothmonk"><div id="sc" class="svg"></div></a>
+    <a href="https://sabretoothmonk.bandcamp.com/"><div id="bc" class="svg"></div></a>
+  </div>
+
   <div class="choiceHolder">
 
     <div ng-click="landing.endSong()" ui-sref="music" id="c1" class="choice"><h2>MUsic</h2></div>

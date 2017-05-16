@@ -98,10 +98,75 @@ a:visited {
   background-size: cover;
 }
 
+#headerHolder {
+  margin-left: 3.5%;
+  margin-right: 3.5%;
+  display: inline-block;
+}
 
 .musicHeader {
   display: inline-block;
   padding-top: 10px;
+}
+
+.svgHolder {
+position: absolute;
+top: -2%;
+width: 100%;
+}
+
+.homeheader {
+  margin-left: 3.5%;
+  margin-right: 3.5%;
+  display: inline-block;
+}
+
+.svg {
+  background-size: cover;
+  height: 50px;
+  width: 50px;
+  margin-left: 1.5%;
+  margin-right: 1.5%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.svg:hover {
+  animation: pulse 2s ease-in-out;
+}
+
+@keyframes pulse {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.5, 1.5, 1.5);
+    transform: scale3d(1.5, 1.5, 1.5);
+  }
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+#fb {
+  background-image: url('../images/facebook.svg');
+}
+
+#insta {
+  background-image: url('../images/instagram.svg');
+}
+
+#sc {
+  background-image: url('../images/soundcloud.svg');
+  width: 88px;
+  height: 50px;
+  background-size: contain;
+}
+
+#bc {
+  background-image: url('../images/bandcamp.svg');
 }
 
 .choice {
@@ -146,7 +211,7 @@ width: 100%;
   margin: auto;
   border: 2px solid black;
   border-radius: 10px;
-  padding: 0px 20px; 
+  padding: 0px 20px;
 }
 
 #homeLink {
